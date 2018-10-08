@@ -5,47 +5,123 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact HTML</title>
+    <title>Himabindu</title>
     <link rel="stylesheet" type="text/css" href="bindu.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script>
+    function validateForm() {
+        var x = document.forms["myContactForm"]["FirstName"].value;
+        if (x == "") {
+            alert("FirstName is blank, must be filled out");
+            return false;
+        }
+        if( /[^a-zA-Z0-9\-\/]/.test(x) ) {
+            alert('FirstName contains special charatcters, please verify');
+            return false;
+        }
+
+        var x = document.forms["myContactForm"]["LastName"].value;
+        if (x == "") {
+            alert("LastName is blank, must be filled out");
+            return false;
+        }
+        if( /[^a-zA-Z0-9\-\/]/.test(x) ) {
+            alert('LastName contains special charatcters, please verify');
+            return false;
+        }
+
+        var x = document.forms["myContactForm"]["contact"].value;
+        if (x == "") {
+            alert("Contact is blank, must be filled out");
+            return false;
+        }
+        if( /[^a-zA-Z0-9\-\/]/.test(x) ) {
+            alert('Contact contains special charatcters, please verify');
+            return false;
+        }
+    }
+    </script>
 
 </head>
 
-<body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Home</a>
-                <a class="navbar-brand" href="Triangle.html">YourChoice</a>
-                <a class="navbar-brand" href="Contact.html">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body>  
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="index.html">Himabindu Poshala</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="navbar-nav">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="TicTacToe.html">TicTacToe</a>
+                    <a class="nav-link" href="contact.html">Contact<span class="sr-only">(current)</span></a>
+                </div>
+                </div>
+        </nav>
+
     <header class="Header">Contact details</header>
     <div class="container">
-        <a href="https://www.facebook.com/himabindu.poshala.3"><img width="50" height="50" src="Facebook.png" alt="facebook"></a><br>
-        <a href="https://www.linkedin.com/in/himabindu-poshala-1a6b97171/"><img width="50" height="50" src="Linkedin.png"
-                alt="LinkedIn"></a><br>
-        <a href="https://github.com/HimabinduPoshala"><img width="50" height="50" src="Github.png" alt="GitHub"></a><br>
-        <a href="https://bitbucket.org/HimabinduPoshala/"><img width="50" height="50" src="Bitbucket.png" alt="BitBucket"></a><br>
-        <form>
-            <p>First Name<sup style="
-            color:red">*</sup></p>
-            <input type="text" name="FirstName" value="Himabindu" required><br>
-            <p>Last Name<sup style="
-                color:red">*</sup></p>
-            <input type="text" name="Lastname" value="Poshala" required><br>
-            <p>Gender<sup style="color:red">*</sup></p>
-            <input type="radio" name="Male" value="Male">Male<br>
-            <input type="radio" name="Female" value="Female" checked>Female<br><br>
-            <p>Any questions?</p><br>
-            <textarea style="height:150px;width:150px"></textarea><br>
-            <button type="button" name="Submit" onclick="alert('Thank you! your response is recorded')">Submit</button>
-        </form>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="https://www.facebook.com/himabindu.poshala.3"><img width="50" height="50" src="Facebook.png"
+                        alt="facebook"></div>
+            <div class="col-md-3">
+                <a href="https://www.linkedin.com/in/himabindu-poshala-1a6b97171/"><img width="50" height="50" src="Linkedin.png"
+                        alt="LinkedIn"></a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://github.com/HimabinduPoshala"><img width="50" height="50" src="Github.png" alt="GitHub"></a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://bitbucket.org/HimabinduPoshala/"><img width="50" height="50" src="Bitbucket.png" alt="BitBucket"></a>
+            </div>
+        </div>
     </div>
+    </div>
+    <section class="operation">
+        <form name="myContactForm" onsubmit="return validateForm()" method="post">
+            <fieldset>
+                <legend>Personal information:</legend>
+                </fieldset>
+            First Name:<br>
+            <input type="text" name="FirstName" required><br>
+            Last Name:<br>
+            <input type="text" name="LastName" required><br>
+            Gender:<br>
+            <input type="radio" name="gender" value="Male">Male<br>
+            <input type="radio" name="gender" value="Female">Female<br>
+            <input type="radio" name="gender" value="other">other<br>
+            Email:<br>
+            <input type="text" name="email" placeholder="abcde@gmail.com" pattern="+@.com" required><br>
+            Contact:<br>
+            <input type="text" name="contact" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            Text Here:<br>
+            <textarea name="message" rows="5" cols="30">
+
+            </textarea><br>
+<!--<div class="from-group-row">
+                <label for="inputEmail" class="col-sm-3 col-form-label">
+                    <p id="email"><strong>Email:</strong></p>
+                    </label>
+                    <div class="col-sm-3">
+                    <input type="email"class="form-control" id="inputemail" placeholder="abcde@gmail.com" pattern="+@gmail.com"required>
+                    </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="phone"class="form-control" id="inputphone" placeholder="123-56-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+                        </div>
+                        </div>-->
+            <button type="button" onclick="alert('this is new form')">Click  Me!</button>-->
+            <button type="submit">submit</button>
+        </form>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
 </html>
